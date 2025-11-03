@@ -1,68 +1,133 @@
 # Collexus - Student Networking Platform
 
-## Overview
-Collexus is a comprehensive student networking platform designed for NIT and IIT students to connect, collaborate, and create meaningful relationships across colleges.
+A comprehensive 3D MERN stack platform connecting students across NITs, IITs, and universities worldwide.
+
+## Features
+
+- **Authentication System**: JWT-based login with role-based access
+- **Student Dashboard**: Personalized dashboard with quick stats
+- **Clubs & Communities**: Join, create, and manage student clubs
+- **Events System**: Discover events and RSVP with capacity tracking
+- **Real-time Messaging**: Direct and group chat with typing indicators
+- **Job Board**: Browse internships and full-time opportunities
+- **Recruiter Panel**: Post jobs and track applicants
+- **Admin Dashboard**: Content moderation and platform analytics
+- **3D Design**: Modern glassmorphic UI with smooth animations
 
 ## Tech Stack
-- **Frontend:** React.js with Tailwind CSS
-- **Backend:** Node.js with Express.js
-- **Database:** MongoDB
-- **Real-time:** Socket.io
-- **Authentication:** JWT
+
+### Frontend
+- React.js + Next.js 15
+- TailwindCSS v4
+- TypeScript
+- ShadcN UI Components
+- GSAP for animations
+
+### Backend
+- Node.js + Express.js
+- Socket.io for real-time features
+- MongoDB + Mongoose ORM
+- JWT Authentication
+- Bcrypt for password hashing
+
+### Deployment
+- Vercel (Frontend)
+- Render (Backend)
+- MongoDB Atlas (Database)
 
 ## Quick Start
 
-### Prerequisites
-- Node.js (v16+)
-- MongoDB (v5.0+)
-- Git
-
-### Installation
-```bash
-# Clone repository
-git clone <repository-url>
-cd collexus-platform
-
-# Backend setup
-cd backend
+### Frontend
+\`\`\`bash
+# Install dependencies
 npm install
-cp .env.example .env
-# Configure .env file
+
+# Run development server
 npm run dev
 
-# Frontend setup (new terminal)
-cd ../frontend
+# Open http://localhost:3000
+\`\`\`
+
+### Backend Setup
+\`\`\`bash
+cd server
 npm install
-npm start
-```
 
-### Default Ports
-- Frontend: http://localhost:3000
-- Backend: http://localhost:5000
-- MongoDB: mongodb://localhost:27017
+# Set up environment variables
+cp .env.example .env.local
 
-## Features
-- ✅ User Authentication & Email Verification
-- ✅ Profile Management
-- ✅ Club Creation & Management
-- ✅ Event Scheduling
-- ✅ Real-time Messaging
-- ✅ Search & Filtering
-- ✅ Content Reporting
-- ✅ Role-based Access Control
+# Run development server
+npm run dev
+\`\`\`
 
-## Project Structure
-```
-collexus-platform/
-├── frontend/          # React.js application
-├── backend/           # Node.js API server
-├── database/          # MongoDB schemas
-├── docs/              # Documentation
-└── README.md          # This file
-```
+## API Endpoints
 
-## Support
-For issues and questions, please create a GitHub issue.
+### Authentication
+- POST /api/auth/register
+- POST /api/auth/login
+- POST /api/auth/verify
+
+### Clubs
+- GET /api/clubs
+- POST /api/clubs
+- PUT /api/clubs/:id
+- DELETE /api/clubs/:id
+
+### Events
+- GET /api/events
+- POST /api/events
+- POST /api/events/:id/rsvp
+
+### Jobs
+- GET /api/jobs
+- POST /api/jobs
+- POST /api/jobs/:id/apply
+
+### Users
+- GET /api/users/:id/profile
+- PUT /api/users/:id/profile
+
+### Admin
+- GET /api/admin/reports
+- POST /api/admin/reports
+- PATCH /api/admin/reports/:id
+
+## Environment Variables
+
+\`\`\`
+DATABASE_URL=mongodb+srv://...
+JWT_SECRET=your_secret_key
+SOCKET_IO_URL=http://localhost:4000
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+\`\`\`
+
+## Role-Based Access
+
+1. **Student**: Access dashboard, join clubs, browse jobs
+2. **Club Admin**: Manage club, create events, moderate members
+3. **Recruiter**: Post jobs, view candidates, track applications
+4. **Institution**: Verify clubs, monitor engagement, send announcements
+5. **Super Admin**: Full platform control, content moderation
+
+## Deployment
+
+### Deploy to Vercel
+\`\`\`bash
+vercel deploy
+\`\`\`
+
+### Deploy to Render
+\`\`\`bash
+# Connect your GitHub repository to Render
+# Set environment variables
+# Deploy with git push
+\`\`\`
+
+## Contributing
+
+Pull requests are welcome! Please follow the existing code style and add tests for new features.
 
 ## License
-MIT License
+
+MIT License - feel free to use this for educational purposes.
+\`\`\`
